@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { Match } from '@/types'
 
 interface GameHeaderProps {
@@ -17,110 +18,81 @@ export default function GameHeader({
   progress,
   total,
 }: GameHeaderProps) {
-  const formattedDate = new Date(match.date).toLocaleDateString('es-MX', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
-
-  const activeTeam = selectedTeam === 'home' ? match.homeTeam : match.awayTeam
-  const activeLineup = selectedTeam === 'home' ? match.homeLineup : match.awayLineup
-  const progressPercent = Math.round((progress / total) * 100)
+  const homeTeam = match.homeTeam
+  const awayTeam = match.awayTeam
+  const score = match.score
 
   return (
-    <div className="bg-gray-800 border border-gray-700 rounded-xl p-5 mb-6">
-      {/* Match title */}
-      <div className="flex items-center justify-between mb-1">
-        <span className="text-xs font-semibold text-yellow-400 bg-yellow-400/10 px-2 py-1 rounded-md">
-          {match.competition}
-        </span>
-        <span className="text-xs text-gray-400">{match.stage}</span>
-      </div>
-
-      <h1 className="text-white font-black text-xl mt-3 mb-1">
-        {match.homeTeam.name}{' '}
-        <span className="text-yellow-400">
-          {match.score ? `${match.score.home} - ${match.score.away}` : 'vs'}
-        </span>{' '}
-        {match.awayTeam.name}
-      </h1>
-      <p className="text-gray-400 text-sm mb-4">{formattedDate}</p>
-
-      {/* Team selector tabs */}
-      <div className="flex gap-3 mb-4">
-        <button
-          onClick={() => onSelectTeam('home')}
-          className={`flex-1 py-2.5 rounded-lg font-bold text-sm border transition-all ${
-            selectedTeam === 'home'
-              ? 'border-yellow-400 text-yellow-400 bg-yellow-400/10'
-              : 'border-gray-600 text-gray-400 hover:border-gray-500 hover:text-gray-300'
-          }`}
-          style={
-            selectedTeam === 'home'
-              ? {
-                  borderColor: match.homeTeam.color,
-                  color: match.homeTeam.color,
-                  backgroundColor: match.homeTeam.color + '15',
-                }
-              : {}
-          }
+    <div
+      className="w-full"
+      style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}
+    >
+      {/* Top row: back + match title + progress */}
+      <div className="flex items-center justify-between px-4 py-3">
+        <Link
+          href="/games/guess-xi"
+          className="text-white/30 hover:text-white/60 transition-colors text-sm flex items-center gap-1.5"
         >
-          <span className="mr-2">{match.homeTeam.shortName}</span>
-          {match.homeTeam.name}
-        </button>
-        <button
-          onClick={() => onSelectTeam('away')}
-          className={`flex-1 py-2.5 rounded-lg font-bold text-sm border transition-all ${
-            selectedTeam === 'away'
-              ? 'border-yellow-400 text-yellow-400 bg-yellow-400/10'
-              : 'border-gray-600 text-gray-400 hover:border-gray-500 hover:text-gray-300'
-          }`}
-          style={
-            selectedTeam === 'away'
-              ? {
-                  borderColor: match.awayTeam.color,
-                  color: match.awayTeam.color,
-                  backgroundColor: match.awayTeam.color + '15',
-                }
-              : {}
-          }
-        >
-          <span className="mr-2">{match.awayTeam.shortName}</span>
-          {match.awayTeam.name}
-        </button>
-      </div>
+          <span>←</span>
+        </Link>
 
-      {/* Formation & progress */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="text-gray-400 text-sm">Formación:</span>
-          <span
-            className="font-bold text-sm px-2 py-0.5 rounded"
-            style={{
-              color: activeTeam.color,
-              backgroundColor: activeTeam.color + '20',
-            }}
-          >
-            {activeLineup.formation}
-          </span>
+        <div className="text-center">
+          <div className="flex items-center justify-center gap-2 text-sm font-black tracking-tight">
+            <span style={{ color: homeTeam.color }}>{homeTeam.shortName}</span>
+            <span className="text-white/30 text-xs font-normal">
+              {score ? `${score.home}–${score.away}` : 'vs'}
+            </span>
+            <span style={{ color: awayTeam.color }}>{awayTeam.shortName}</span>
+          </div>
+          <p className="text-[10px] text-white/25 mt-0.5">{match.stage}</p>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="text-gray-400 text-sm">Progreso:</span>
-          <span className="text-white font-bold text-sm">
-            {progress}/{total}
-          </span>
-        </div>
-      </div>
 
-      {/* Progress bar */}
-      <div className="mt-3 bg-gray-700 rounded-full h-2 overflow-hidden">
+        {/* Progress pill */}
         <div
-          className="h-full rounded-full transition-all duration-500"
+          className="text-xs font-black px-2.5 py-1 rounded-full"
           style={{
-            width: `${progressPercent}%`,
-            backgroundColor: progress === total && total > 0 ? '#22c55e' : activeTeam.color,
+            background: progress === total && total > 0
+              ? 'rgba(34,197,94,0.15)'
+              : 'rgba(255,255,255,0.06)',
+            color: progress === total && total > 0 ? '#22c55e' : 'rgba(255,255,255,0.5)',
+            border: progress === total && total > 0
+              ? '1px solid rgba(34,197,94,0.3)'
+              : '1px solid rgba(255,255,255,0.08)',
           }}
-        />
+        >
+          {progress}/{total}
+        </div>
+      </div>
+
+      {/* Team selector */}
+      <div className="flex px-4 pb-3 gap-2">
+        {(['home', 'away'] as const).map((side) => {
+          const team = side === 'home' ? homeTeam : awayTeam
+          const active = selectedTeam === side
+          return (
+            <button
+              key={side}
+              onClick={() => onSelectTeam(side)}
+              className="flex-1 py-2 rounded-xl text-xs font-bold transition-all"
+              style={
+                active
+                  ? {
+                      background: `${team.color}18`,
+                      border: `1.5px solid ${team.color}60`,
+                      color: team.color,
+                      boxShadow: `0 0 12px ${team.color}20`,
+                    }
+                  : {
+                      background: 'rgba(255,255,255,0.03)',
+                      border: '1.5px solid rgba(255,255,255,0.07)',
+                      color: 'rgba(255,255,255,0.35)',
+                    }
+              }
+            >
+              {team.name}
+            </button>
+          )
+        })}
       </div>
     </div>
   )
