@@ -1,19 +1,19 @@
 [
   {
-    "id": "verano-1996",
+    "id": "invierno-1996",
     "year": 1996,
-    "season_type": "Verano",
-    "champion_team_id": "necaxa",
+    "season_type": "Invierno",
+    "champion_team_id": "santos-laguna",
     "formation": "4-4-2",
     "runner_up_team_id": null,
     "source": "seed",
     "needs_verification": false,
-    "champion_team_name": "Necaxa"
+    "champion_team_name": "Santos Laguna"
   },
   {
-    "id": "invierno-1996",
-    "year": 1996,
-    "season_type": "Invierno",
+    "id": "verano-1997",
+    "year": 1997,
+    "season_type": "Verano",
     "champion_team_id": "chivas-guadalajara",
     "formation": "4-3-3",
     "runner_up_team_id": null,
@@ -22,26 +22,15 @@
     "champion_team_name": "Chivas Guadalajara"
   },
   {
-    "id": "verano-1997",
+    "id": "invierno-1997",
     "year": 1997,
-    "season_type": "Verano",
+    "season_type": "Invierno",
     "champion_team_id": "cruz-azul",
     "formation": "4-4-2",
     "runner_up_team_id": null,
     "source": "seed",
     "needs_verification": false,
     "champion_team_name": "Cruz Azul"
-  },
-  {
-    "id": "invierno-1997",
-    "year": 1997,
-    "season_type": "Invierno",
-    "champion_team_id": "chivas-guadalajara",
-    "formation": "4-3-3",
-    "runner_up_team_id": null,
-    "source": "seed",
-    "needs_verification": false,
-    "champion_team_name": "Chivas Guadalajara"
   },
   {
     "id": "verano-1998",
@@ -69,6 +58,17 @@
     "id": "verano-1999",
     "year": 1999,
     "season_type": "Verano",
+    "champion_team_id": "deportivo-toluca",
+    "formation": "4-4-2",
+    "runner_up_team_id": null,
+    "source": "seed",
+    "needs_verification": false,
+    "champion_team_name": "Deportivo Toluca"
+  },
+  {
+    "id": "invierno-1999",
+    "year": 1999,
+    "season_type": "Invierno",
     "champion_team_id": "cf-pachuca",
     "formation": "4-4-2",
     "runner_up_team_id": null,
@@ -77,37 +77,26 @@
     "champion_team_name": "CF Pachuca"
   },
   {
-    "id": "invierno-1999",
-    "year": 1999,
-    "season_type": "Invierno",
-    "champion_team_id": "atlante",
+    "id": "verano-2000",
+    "year": 2000,
+    "season_type": "Verano",
+    "champion_team_id": "deportivo-toluca",
     "formation": "4-4-2",
     "runner_up_team_id": null,
     "source": "seed",
     "needs_verification": false,
-    "champion_team_name": "Atlante FC"
-  },
-  {
-    "id": "verano-2000",
-    "year": 2000,
-    "season_type": "Verano",
-    "champion_team_id": "atletico-celaya",
-    "formation": "4-4-2",
-    "runner_up_team_id": null,
-    "source": "seed",
-    "needs_verification": true,
-    "champion_team_name": "Atlético Celaya"
+    "champion_team_name": "Deportivo Toluca"
   },
   {
     "id": "invierno-2000",
     "year": 2000,
     "season_type": "Invierno",
-    "champion_team_id": "deportivo-toluca",
+    "champion_team_id": "monarcas-morelia",
     "formation": "4-4-2",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
-    "champion_team_name": "Deportivo Toluca"
+    "needs_verification": false,
+    "champion_team_name": "Monarcas Morelia"
   },
   {
     "id": "verano-2001",
@@ -146,23 +135,23 @@
     "id": "apertura-2002",
     "year": 2002,
     "season_type": "Apertura",
+    "champion_team_id": "deportivo-toluca",
+    "formation": "4-4-2",
+    "runner_up_team_id": null,
+    "source": "seed",
+    "needs_verification": false,
+    "champion_team_name": "Deportivo Toluca"
+  },
+  {
+    "id": "clausura-2003",
+    "year": 2003,
+    "season_type": "Clausura",
     "champion_team_id": "cf-monterrey",
     "formation": "4-4-2",
     "runner_up_team_id": null,
     "source": "seed",
     "needs_verification": false,
     "champion_team_name": "CF Monterrey"
-  },
-  {
-    "id": "clausura-2003",
-    "year": 2003,
-    "season_type": "Clausura",
-    "champion_team_id": "monarcas-morelia",
-    "formation": "4-4-2",
-    "runner_up_team_id": null,
-    "source": "seed",
-    "needs_verification": false,
-    "champion_team_name": "Monarcas Morelia"
   },
   {
     "id": "apertura-2003",
@@ -202,7 +191,7 @@
     "year": 2005,
     "season_type": "Clausura",
     "champion_team_id": "club-america",
-    "formation": "4-4-2",
+    "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
     "needs_verification": false,
@@ -212,34 +201,34 @@
     "id": "apertura-2005",
     "year": 2005,
     "season_type": "Apertura",
-    "champion_team_id": "cf-monterrey",
-    "formation": "4-4-2",
-    "runner_up_team_id": null,
-    "source": "seed",
-    "needs_verification": false,
-    "champion_team_name": "CF Monterrey"
-  },
-  {
-    "id": "clausura-2006",
-    "year": 2006,
-    "season_type": "Clausura",
-    "champion_team_id": "chivas-guadalajara",
-    "formation": "4-3-3",
-    "runner_up_team_id": null,
-    "source": "seed",
-    "needs_verification": false,
-    "champion_team_name": "Chivas Guadalajara"
-  },
-  {
-    "id": "apertura-2006",
-    "year": 2006,
-    "season_type": "Apertura",
     "champion_team_id": "deportivo-toluca",
     "formation": "4-4-2",
     "runner_up_team_id": null,
     "source": "seed",
     "needs_verification": false,
     "champion_team_name": "Deportivo Toluca"
+  },
+  {
+    "id": "clausura-2006",
+    "year": 2006,
+    "season_type": "Clausura",
+    "champion_team_id": "cf-pachuca",
+    "formation": "4-4-2",
+    "runner_up_team_id": null,
+    "source": "seed",
+    "needs_verification": false,
+    "champion_team_name": "CF Pachuca"
+  },
+  {
+    "id": "apertura-2006",
+    "year": 2006,
+    "season_type": "Apertura",
+    "champion_team_id": "chivas-guadalajara",
+    "formation": "4-3-3",
+    "runner_up_team_id": null,
+    "source": "seed",
+    "needs_verification": false,
+    "champion_team_name": "Chivas Guadalajara"
   },
   {
     "id": "clausura-2007",
@@ -249,7 +238,7 @@
     "formation": "4-4-2",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "CF Pachuca"
   },
   {
@@ -289,12 +278,12 @@
     "id": "clausura-2009",
     "year": 2009,
     "season_type": "Clausura",
-    "champion_team_id": "club-america",
+    "champion_team_id": "pumas-unam",
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
     "needs_verification": false,
-    "champion_team_name": "Club América"
+    "champion_team_name": "Pumas UNAM"
   },
   {
     "id": "apertura-2009",
@@ -311,45 +300,45 @@
     "id": "clausura-2010",
     "year": 2010,
     "season_type": "Clausura",
-    "champion_team_id": "chivas-guadalajara",
-    "formation": "4-3-3",
+    "champion_team_id": "deportivo-toluca",
+    "formation": "4-4-2",
     "runner_up_team_id": null,
     "source": "seed",
     "needs_verification": false,
-    "champion_team_name": "Chivas Guadalajara"
+    "champion_team_name": "Deportivo Toluca"
   },
   {
     "id": "apertura-2010",
     "year": 2010,
     "season_type": "Apertura",
-    "champion_team_id": "santos-laguna",
+    "champion_team_id": "cf-monterrey",
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
     "needs_verification": false,
-    "champion_team_name": "Santos Laguna"
+    "champion_team_name": "CF Monterrey"
   },
   {
     "id": "clausura-2011",
     "year": 2011,
     "season_type": "Clausura",
-    "champion_team_id": "monarcas-morelia",
-    "formation": "4-4-2",
+    "champion_team_id": "pumas-unam",
+    "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
     "needs_verification": false,
-    "champion_team_name": "Monarcas Morelia"
+    "champion_team_name": "Pumas UNAM"
   },
   {
     "id": "apertura-2011",
     "year": 2011,
     "season_type": "Apertura",
-    "champion_team_id": "club-leon",
-    "formation": "4-4-2",
+    "champion_team_id": "tigres-uanl",
+    "formation": "4-2-3-1",
     "runner_up_team_id": null,
     "source": "seed",
     "needs_verification": false,
-    "champion_team_name": "Club León"
+    "champion_team_name": "Tigres UANL"
   },
   {
     "id": "clausura-2012",
@@ -403,7 +392,7 @@
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "Club León"
   },
   {
@@ -414,19 +403,19 @@
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "Club América"
   },
   {
     "id": "clausura-2015",
     "year": 2015,
     "season_type": "Clausura",
-    "champion_team_id": "club-america",
+    "champion_team_id": "santos-laguna",
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
-    "champion_team_name": "Club América"
+    "needs_verification": false,
+    "champion_team_name": "Santos Laguna"
   },
   {
     "id": "apertura-2015",
@@ -436,19 +425,19 @@
     "formation": "4-2-3-1",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "Tigres UANL"
   },
   {
     "id": "clausura-2016",
     "year": 2016,
     "season_type": "Clausura",
-    "champion_team_id": "club-america",
+    "champion_team_id": "cf-pachuca",
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
-    "champion_team_name": "Club América"
+    "needs_verification": false,
+    "champion_team_name": "CF Pachuca"
   },
   {
     "id": "apertura-2016",
@@ -458,7 +447,7 @@
     "formation": "4-2-3-1",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "Tigres UANL"
   },
   {
@@ -469,7 +458,7 @@
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "Chivas Guadalajara"
   },
   {
@@ -480,19 +469,19 @@
     "formation": "4-2-3-1",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "Tigres UANL"
   },
   {
     "id": "clausura-2018",
     "year": 2018,
     "season_type": "Clausura",
-    "champion_team_id": "chivas-guadalajara",
+    "champion_team_id": "santos-laguna",
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
-    "champion_team_name": "Chivas Guadalajara"
+    "needs_verification": false,
+    "champion_team_name": "Santos Laguna"
   },
   {
     "id": "apertura-2018",
@@ -502,19 +491,19 @@
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "Club América"
   },
   {
     "id": "clausura-2019",
     "year": 2019,
     "season_type": "Clausura",
-    "champion_team_id": "cf-monterrey",
-    "formation": "4-3-3",
+    "champion_team_id": "tigres-uanl",
+    "formation": "4-2-3-1",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
-    "champion_team_name": "CF Monterrey"
+    "needs_verification": false,
+    "champion_team_name": "Tigres UANL"
   },
   {
     "id": "apertura-2019",
@@ -524,7 +513,7 @@
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "CF Monterrey"
   },
   {
@@ -535,7 +524,7 @@
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "Club León"
   },
   {
@@ -546,7 +535,7 @@
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "Cruz Azul"
   },
   {
@@ -557,7 +546,7 @@
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "Atlas FC"
   },
   {
@@ -568,7 +557,7 @@
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "Atlas FC"
   },
   {
@@ -579,7 +568,7 @@
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "CF Pachuca"
   },
   {
@@ -590,7 +579,7 @@
     "formation": "4-2-3-1",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "Tigres UANL"
   },
   {
@@ -601,7 +590,7 @@
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "Club América"
   },
   {
@@ -612,7 +601,40 @@
     "formation": "4-3-3",
     "runner_up_team_id": null,
     "source": "seed",
-    "needs_verification": true,
+    "needs_verification": false,
     "champion_team_name": "Club América"
+  },
+  {
+    "id": "apertura-2024",
+    "year": 2024,
+    "season_type": "Apertura",
+    "champion_team_id": "club-america",
+    "formation": "4-3-3",
+    "runner_up_team_id": null,
+    "source": "seed",
+    "needs_verification": false,
+    "champion_team_name": "Club América"
+  },
+  {
+    "id": "clausura-2025",
+    "year": 2025,
+    "season_type": "Clausura",
+    "champion_team_id": "deportivo-toluca",
+    "formation": "4-3-3",
+    "runner_up_team_id": null,
+    "source": "seed",
+    "needs_verification": false,
+    "champion_team_name": "Deportivo Toluca"
+  },
+  {
+    "id": "apertura-2025",
+    "year": 2025,
+    "season_type": "Apertura",
+    "champion_team_id": "deportivo-toluca",
+    "formation": "4-3-3",
+    "runner_up_team_id": null,
+    "source": "seed",
+    "needs_verification": false,
+    "champion_team_name": "Deportivo Toluca"
   }
 ]
