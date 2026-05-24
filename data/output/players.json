@@ -1,0 +1,86 @@
+[
+  {
+    "id": "club-leon-2013-william-yarbrough",
+    "name": "William Yarbrough",
+    "nationality": "United States",
+    "preferred_position": "GK",
+    "tm_id": null
+  },
+  {
+    "id": "club-leon-2013-diego-novaretti",
+    "name": "Diego Novaretti",
+    "nationality": "Argentina",
+    "preferred_position": "CB",
+    "tm_id": null
+  },
+  {
+    "id": "club-leon-2013-mauro-boselli",
+    "name": "Mauro Boselli",
+    "nationality": "Argentina",
+    "preferred_position": "ST",
+    "tm_id": null
+  },
+  {
+    "id": "club-leon-2013-carlos-pena",
+    "name": "Carlos Peña",
+    "nationality": "Mexico",
+    "preferred_position": "CM",
+    "tm_id": null
+  },
+  {
+    "id": "club-leon-2013-elias-hernandez",
+    "name": "Elias Hernandez",
+    "nationality": "Mexico",
+    "preferred_position": "LW",
+    "tm_id": null
+  },
+  {
+    "id": "club-leon-2013-jimenez-gomez",
+    "name": "Jimenez Gomez",
+    "nationality": "Mexico",
+    "preferred_position": "CB",
+    "tm_id": null
+  },
+  {
+    "id": "club-leon-2013-rodolfo-cota",
+    "name": "Rodolfo Cota",
+    "nationality": "Mexico",
+    "preferred_position": "GK",
+    "tm_id": null
+  },
+  {
+    "id": "club-leon-2013-efrain-velarde",
+    "name": "Efrain Velarde",
+    "nationality": "Mexico",
+    "preferred_position": "RB",
+    "tm_id": null
+  },
+  {
+    "id": "club-leon-2013-ivan-estrada",
+    "name": "Ivan Estrada",
+    "nationality": "Mexico",
+    "preferred_position": "LB",
+    "tm_id": null
+  },
+  {
+    "id": "club-leon-2013-luis-montes",
+    "name": "Luis Montes",
+    "nationality": "Mexico",
+    "preferred_position": "CAM",
+    "tm_id": null
+  },
+  {
+    "id": "club-leon-2013-jorge-torres-nilo",
+    "name": "Jorge Torres Nilo",
+    "nationality": "Mexico",
+    "preferred_position": "CM",
+    "tm_id": null
+  },
+  {
+    "id": "club-leon-2013-angel-mena",
+    "name": "Angel Mena",
+    "nationality": "Ecuador",
+    "preferred_position": "RW",
+    "tm_id": null
+  }
+]
