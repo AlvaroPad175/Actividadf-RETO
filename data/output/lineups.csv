@@ -1,0 +1,13 @@
+tournament_id,season_type,year,team_id,team_name,player_id,player_name,nationality,shirt_number,position_group,position_exact,formation_order,starter,formation,source,needs_verification
+apertura-2013,Apertura,2013,club-leon,Club León,club-leon-2013-william-yarbrough,William Yarbrough,United States,1,GK,GK,1,True,4-3-3,manual,False
+apertura-2013,Apertura,2013,club-leon,Club León,club-leon-2013-diego-novaretti,Diego Novaretti,Argentina,3,DEF,CB,2,True,4-3-3,manual,False
+apertura-2013,Apertura,2013,club-leon,Club León,club-leon-2013-mauro-boselli,Mauro Boselli,Argentina,9,FWD,ST,9,True,4-3-3,manual,False
+apertura-2013,Apertura,2013,club-leon,Club León,club-leon-2013-carlos-pena,Carlos Peña,Mexico,8,MID,CM,6,True,4-3-3,manual,False
+apertura-2013,Apertura,2013,club-leon,Club León,club-leon-2013-elias-hernandez,Elias Hernandez,Mexico,11,FWD,LW,10,True,4-3-3,manual,False
+apertura-2013,Apertura,2013,club-leon,Club León,club-leon-2013-jimenez-gomez,Jimenez Gomez,Mexico,4,DEF,CB,3,True,4-3-3,manual,False
+apertura-2013,Apertura,2013,club-leon,Club León,club-leon-2013-rodolfo-cota,Rodolfo Cota,Mexico,13,GK,GK,12,False,4-3-3,manual,False
+apertura-2013,Apertura,2013,club-leon,Club León,club-leon-2013-efrain-velarde,Efrain Velarde,Mexico,2,DEF,RB,4,True,4-3-3,manual,False
+apertura-2013,Apertura,2013,club-leon,Club León,club-leon-2013-ivan-estrada,Ivan Estrada,Mexico,6,DEF,LB,5,True,4-3-3,manual,False
+apertura-2013,Apertura,2013,club-leon,Club León,club-leon-2013-luis-montes,Luis Montes,Mexico,10,MID,CAM,7,True,4-3-3,manual,False
+apertura-2013,Apertura,2013,club-leon,Club León,club-leon-2013-jorge-torres-nilo,Jorge Torres Nilo,Mexico,16,MID,CM,8,True,4-3-3,manual,False
+apertura-2013,Apertura,2013,club-leon,Club León,club-leon-2013-angel-mena,Angel Mena,Ecuador,7,FWD,RW,11,True,4-3-3,manual,False

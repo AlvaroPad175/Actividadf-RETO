@@ -1,0 +1,22 @@
+{
+  "_comment": "Manual lineup overrides. Use this file when scraping fails or data is unavailable. All entries here take precedence over scraped data. See README.md for instructions on adding new entries.",
+  "apertura-2013": {
+    "team_id": "club-leon",
+    "formation": "4-3-3",
+    "source": "manual",
+    "players": [
+      {"name": "William Yarbrough",  "shirt_number": 1,  "position_group": "GK",  "position_exact": "GK",  "formation_order": 1,  "nationality": "United States"},
+      {"name": "Diego Novaretti",    "shirt_number": 3,  "position_group": "DEF", "position_exact": "CB",  "formation_order": 2,  "nationality": "Argentina"},
+      {"name": "Mauro Boselli",      "shirt_number": 9,  "position_group": "FWD", "position_exact": "ST",  "formation_order": 9,  "nationality": "Argentina"},
+      {"name": "Carlos Peña",        "shirt_number": 8,  "position_group": "MID", "position_exact": "CM",  "formation_order": 6,  "nationality": "Mexico"},
+      {"name": "Elias Hernandez",    "shirt_number": 11, "position_group": "FWD", "position_exact": "LW",  "formation_order": 10, "nationality": "Mexico"},
+      {"name": "Jimenez Gomez",      "shirt_number": 4,  "position_group": "DEF", "position_exact": "CB",  "formation_order": 3,  "nationality": "Mexico"},
+      {"name": "Rodolfo Cota",       "shirt_number": 13, "position_group": "GK",  "position_exact": "GK",  "formation_order": 12, "starter": false, "nationality": "Mexico"},
+      {"name": "Efrain Velarde",     "shirt_number": 2,  "position_group": "DEF", "position_exact": "RB",  "formation_order": 4,  "nationality": "Mexico"},
+      {"name": "Ivan Estrada",       "shirt_number": 6,  "position_group": "DEF", "position_exact": "LB",  "formation_order": 5,  "nationality": "Mexico"},
+      {"name": "Luis Montes",        "shirt_number": 10, "position_group": "MID", "position_exact": "CAM", "formation_order": 7,  "nationality": "Mexico"},
+      {"name": "Jorge Torres Nilo",  "shirt_number": 16, "position_group": "MID", "position_exact": "CM",  "formation_order": 8,  "nationality": "Mexico"},
+      {"name": "Angel Mena",         "shirt_number": 7,  "position_group": "FWD", "position_exact": "RW",  "formation_order": 11, "nationality": "Ecuador"}
+    ]
+  }
+}
