@@ -12,12 +12,18 @@ interface PlayerSlotProps {
 
 function displayName(name: string): string {
   const trimmed = name.trim()
-  if (trimmed.length <= 13) return trimmed
+  if (trimmed.length <= 12) return trimmed
   const parts = trimmed.split(' ')
-  // Try last name only
   const last = parts[parts.length - 1]
-  if (last.length <= 13) return last
-  return last.slice(0, 12) + '…'
+  if (last.length <= 12) return last
+  return last.slice(0, 11) + '…'
+}
+
+const POSITION_LABELS: Record<string, string> = {
+  GK: 'POR',
+  DEF: 'DEF',
+  MID: 'MED',
+  FWD: 'DEL',
 }
 
 export default function PlayerSlot({ player, isGuessed, isRevealed, isNew, teamColor }: PlayerSlotProps) {
@@ -25,52 +31,64 @@ export default function PlayerSlot({ player, isGuessed, isRevealed, isNew, teamC
 
   if (isEmpty) {
     return (
-      <div className="flex flex-col items-center gap-1">
+      <div className="flex flex-col items-center gap-1 select-none">
+        {/* Jersey silhouette */}
         <div
-          className="relative px-2.5 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-widest text-center transition-all select-none"
+          className="relative rounded-lg text-[10px] font-black uppercase tracking-widest text-center transition-all"
           style={{
-            minWidth: '52px',
-            border: `1.5px solid ${teamColor}45`,
-            color: `${teamColor}70`,
-            backgroundColor: `${teamColor}08`,
+            minWidth: '54px',
+            padding: '6px 8px',
+            border: `1.5px dashed ${teamColor}35`,
+            color: `${teamColor}55`,
+            backgroundColor: `${teamColor}06`,
           }}
         >
-          {player.position}
+          {POSITION_LABELS[player.position] ?? player.position}
         </div>
-        <span className="text-[9px] font-mono" style={{ color: 'rgba(255,255,255,0.18)' }}>
-          {player.number}
+        <span
+          className="text-[8px] font-mono tabular-nums"
+          style={{ color: 'rgba(255,255,255,0.15)' }}
+        >
+          #{player.number}
         </span>
       </div>
     )
   }
 
   return (
-    <div className={`flex flex-col items-center gap-1 ${isNew ? 'animate-slot-appear' : ''}`}>
+    <div
+      className={`flex flex-col items-center gap-1 select-none ${isNew ? 'animate-slot-appear' : ''}`}
+    >
       <div
-        className="relative px-2.5 py-1.5 rounded-lg text-[11px] font-bold text-center whitespace-nowrap transition-all select-none overflow-hidden"
+        className="relative rounded-lg text-[10px] font-bold text-center whitespace-nowrap overflow-hidden transition-all"
         style={
           isGuessed
             ? {
-                minWidth: '52px',
-                maxWidth: '90px',
-                border: `1.5px solid ${teamColor}`,
-                color: '#ffffff',
-                backgroundColor: `${teamColor}22`,
-                boxShadow: `0 0 14px ${teamColor}50, 0 0 4px ${teamColor}30`,
+                minWidth: '54px',
+                maxWidth: '88px',
+                padding: '6px 8px',
+                border: `1.5px solid ${teamColor}cc`,
+                color: '#fff',
+                backgroundColor: `${teamColor}20`,
+                boxShadow: `0 0 12px ${teamColor}45, inset 0 1px 0 ${teamColor}30`,
               }
             : {
-                minWidth: '52px',
-                maxWidth: '90px',
-                border: '1.5px solid rgba(239,68,68,0.45)',
-                color: 'rgba(239,68,68,0.8)',
-                backgroundColor: 'rgba(239,68,68,0.08)',
+                minWidth: '54px',
+                maxWidth: '88px',
+                padding: '6px 8px',
+                border: '1.5px solid rgba(239,68,68,0.4)',
+                color: 'rgba(239,68,68,0.75)',
+                backgroundColor: 'rgba(239,68,68,0.07)',
               }
         }
       >
         {displayName(player.name)}
       </div>
-      <span className="text-[9px] font-mono" style={{ color: 'rgba(255,255,255,0.25)' }}>
-        {player.number}
+      <span
+        className="text-[8px] font-mono tabular-nums"
+        style={{ color: 'rgba(255,255,255,0.22)' }}
+      >
+        #{player.number}
       </span>
     </div>
   )

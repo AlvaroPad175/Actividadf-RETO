@@ -5,8 +5,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  --background: #070b14;
-  --foreground: #f9fafb;
+  --background: #060a12;
+  --surface: #0d1220;
+  --surface-2: #111827;
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(255,255,255,0.14);
+  --foreground: #f1f5f9;
+  --muted: rgba(255,255,255,0.4);
+  --accent: #FFD700;
 }
 
 * {
@@ -18,35 +24,34 @@ body {
   color: var(--foreground);
   font-family: 'Inter', system-ui, sans-serif;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Slot appear animation - scale + fade in */
+/* ── Slot appear ─────────────────────────── */
 @keyframes slot-appear {
-  0%   { opacity: 0; transform: scale(0.5) translateY(-6px); }
-  55%  { transform: scale(1.1) translateY(0); }
+  0%   { opacity: 0; transform: scale(0.55) translateY(-8px); }
+  60%  { transform: scale(1.08) translateY(0); }
   100% { opacity: 1; transform: scale(1) translateY(0); }
 }
-
 .animate-slot-appear {
-  animation: slot-appear 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: slot-appear 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-/* Input shake on wrong answer */
+/* ── Input shake ─────────────────────────── */
 @keyframes input-shake {
   0%, 100% { transform: translateX(0); }
-  15%  { transform: translateX(-8px); }
-  30%  { transform: translateX(8px); }
+  15%  { transform: translateX(-9px); }
+  30%  { transform: translateX(9px); }
   45%  { transform: translateX(-5px); }
   60%  { transform: translateX(5px); }
   75%  { transform: translateX(-2px); }
   90%  { transform: translateX(2px); }
 }
-
 .animate-input-shake {
   animation: input-shake 0.45s ease-in-out;
 }
 
-/* Legacy shake for other uses */
+/* ── Legacy shake ────────────────────────── */
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   15% { transform: translateX(-6px); }
@@ -56,13 +61,56 @@ body {
   75% { transform: translateX(-2px); }
   90% { transform: translateX(2px); }
 }
-
 .animate-shake {
   animation: shake 0.4s ease-in-out;
 }
 
-/* Custom scrollbar */
+/* ── Fade up ─────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fade-up 0.45s ease-out forwards;
+}
+
+/* ── Glow pulse ──────────────────────────── */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 8px currentColor; }
+  50%       { box-shadow: 0 0 20px currentColor, 0 0 40px currentColor; }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 1.8s ease-in-out infinite;
+}
+
+/* ── Progress bar fill ───────────────────── */
+@keyframes bar-fill {
+  from { width: 0%; }
+}
+.animate-bar-fill {
+  animation: bar-fill 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ── Scrollbar ───────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #0d1117; }
-::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: #374151; }
+::-webkit-scrollbar-track { background: #0a0f1a; }
+::-webkit-scrollbar-thumb { background: #1e2a3d; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #2d3f5a; }
+
+/* ── Glass card ──────────────────────────── */
+.glass-card {
+  background: rgba(13, 18, 32, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+/* ── Noise texture overlay ───────────────── */
+.noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: inherit;
+}

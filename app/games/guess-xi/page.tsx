@@ -5,6 +5,13 @@ import { matches } from '@/data/matches'
 import GameCard from '@/components/GameCard'
 import { Match } from '@/types'
 
+const TIPS = [
+  'Escribe el nombre o apellido del jugador — ambos son válidos.',
+  'Los acentos son opcionales: "Malagón" o "Malagon" funcionan igual.',
+  'Alterna entre local y visitante con las pestañas del juego.',
+  'Usa "Revelar respuestas" si te rindes. Los no adivinados aparecerán en rojo.',
+]
+
 export default function GuessXIPage() {
   const router = useRouter()
 
@@ -13,50 +20,57 @@ export default function GuessXIPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950">
+    <div className="min-h-screen" style={{ background: 'var(--background)' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
         {/* Header */}
-        <div className="mb-10">
-          <div className="inline-flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/30 rounded-full px-3 py-1 mb-4">
-            <span className="text-yellow-400 text-xs font-semibold">Adivina el XI</span>
+        <div className="mb-10 animate-fade-up">
+          <div
+            className="inline-flex items-center gap-2 rounded-full px-3 py-1 mb-4 text-xs font-semibold"
+            style={{
+              background: 'rgba(255,215,0,0.08)',
+              border: '1px solid rgba(255,215,0,0.22)',
+              color: '#FFD700',
+            }}
+          >
+            Adivina el XI
           </div>
-          <h1 className="text-4xl font-black text-white mb-2">
+          <h1 className="text-4xl font-black text-white tracking-tight mb-2">
             Elige un partido
           </h1>
-          <p className="text-gray-400 text-lg">
-            Selecciona uno de los clásicos para adivinar el XI titular de cada equipo.
+          <p className="text-base" style={{ color: 'rgba(255,255,255,0.45)' }}>
+            Selecciona un clásico y adivina el XI titular de cada equipo.
           </p>
         </div>
 
         {/* Match grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
           {matches.map((match) => (
             <GameCard key={match.id} match={match} onClick={handleMatchClick} />
           ))}
         </div>
 
-        {/* Help text */}
-        <div className="mt-12 bg-gray-800/50 border border-gray-700 rounded-xl p-6">
-          <h3 className="text-white font-bold mb-3">Cómo funciona</h3>
-          <ul className="space-y-2 text-gray-400 text-sm">
-            <li className="flex gap-2">
-              <span className="text-yellow-400 shrink-0">→</span>
-              Escribe el nombre del jugador en el campo de texto correspondiente.
-            </li>
-            <li className="flex gap-2">
-              <span className="text-yellow-400 shrink-0">→</span>
-              Puedes escribir sin acentos (ej: &quot;Malagón&quot; o &quot;Malagon&quot; son válidos).
-            </li>
-            <li className="flex gap-2">
-              <span className="text-yellow-400 shrink-0">→</span>
-              Alterna entre el equipo local y visitante con las pestañas de selección.
-            </li>
-            <li className="flex gap-2">
-              <span className="text-yellow-400 shrink-0">→</span>
-              Usa &quot;Revelar todo&quot; si te rindes, pero los jugadores no adivinados se marcarán en rojo.
-            </li>
+        {/* Tips */}
+        <div
+          className="rounded-2xl p-6"
+          style={{
+            background: 'rgba(13,18,32,0.7)',
+            border: '1px solid rgba(255,255,255,0.07)',
+          }}
+        >
+          <h3 className="text-white font-bold text-sm mb-4">Consejos</h3>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {TIPS.map((tip, i) => (
+              <li key={i} className="flex gap-2.5 items-start">
+                <span className="mt-0.5 text-xs font-bold shrink-0" style={{ color: '#FFD700' }}>→</span>
+                <span className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                  {tip}
+                </span>
+              </li>
+            ))}
           </ul>
         </div>
+
       </div>
     </div>
   )

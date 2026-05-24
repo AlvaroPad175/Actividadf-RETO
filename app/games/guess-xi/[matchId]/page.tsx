@@ -71,20 +71,24 @@ export default function GamePage() {
     }
   }, [selectedTeam])
 
-  // Reset reveal confirm when switching teams
   useEffect(() => {
     setShowRevealConfirm(false)
   }, [selectedTeam])
 
   if (!match || !currentLineup || !activeTeam) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: '#070b14' }}>
+      <div
+        className="min-h-screen flex items-center justify-center"
+        style={{ background: 'var(--background)' }}
+      >
         <div className="text-center">
-          <p className="text-white/40 text-lg mb-4">Partido no encontrado</p>
+          <p className="text-lg mb-4" style={{ color: 'rgba(255,255,255,0.35)' }}>
+            Partido no encontrado
+          </p>
           <Link
             href="/games/guess-xi"
-            className="text-sm font-bold px-5 py-2.5 rounded-xl text-black"
-            style={{ background: '#FFD700' }}
+            className="text-sm font-bold px-5 py-2.5 rounded-xl"
+            style={{ background: '#FFD700', color: '#000' }}
           >
             Volver
           </Link>
@@ -93,23 +97,23 @@ export default function GamePage() {
     )
   }
 
-  const progress  = guessedPlayers.size
-  const total     = currentLineup.players.length
+  const progress   = guessedPlayers.size
+  const total      = currentLineup.players.length
   const isComplete = progress === total
   const isRevealed = revealedPlayers.size > 0
 
-  const homeComplete  = homeGuessed.size  === match.homeLineup.players.length
-  const awayComplete  = awayGuessed.size  === match.awayLineup.players.length
-  const homeResolved  = homeComplete  || homeRevealed.size  > 0
-  const awayResolved  = awayComplete  || awayRevealed.size  > 0
-  const bothDone      = homeResolved  && awayResolved
+  const homeComplete = homeGuessed.size === match.homeLineup.players.length
+  const awayComplete = awayGuessed.size === match.awayLineup.players.length
+  const homeResolved = homeComplete || homeRevealed.size > 0
+  const awayResolved = awayComplete || awayRevealed.size > 0
+  const bothDone     = homeResolved && awayResolved
 
   return (
     <div
       className="min-h-screen flex flex-col"
-      style={{ background: '#070b14' }}
+      style={{ background: 'var(--background)' }}
     >
-      {/* Top bar */}
+      {/* Header + progress bar */}
       <GameHeader
         match={match}
         selectedTeam={selectedTeam}
@@ -118,8 +122,8 @@ export default function GamePage() {
         total={total}
       />
 
-      {/* Pitch area — grows to fill available space */}
-      <div className="flex-1 flex items-center justify-center px-4 py-4 overflow-hidden">
+      {/* Pitch — fills available space */}
+      <div className="flex-1 flex items-center justify-center px-4 py-3 overflow-hidden">
         <PitchView
           lineup={currentLineup}
           guessedPlayers={guessedPlayers}
@@ -129,36 +133,52 @@ export default function GamePage() {
         />
       </div>
 
-      {/* Both teams done banner */}
-      {bothDone && (
-        <div className="px-4 pb-2">
-          <div
-            className="rounded-xl p-3 text-center text-sm font-bold text-white/80"
-            style={{ background: 'rgba(255,215,0,0.08)', border: '1px solid rgba(255,215,0,0.2)' }}
-          >
-            Partido completado —{' '}
-            <Link href="/games/guess-xi" className="text-yellow-400 underline underline-offset-2">
-              jugar otro
-            </Link>
-          </div>
-        </div>
-      )}
-
-      {/* Switch team prompt when one is done */}
+      {/* Switch team prompt */}
       {isComplete && !isRevealed && !bothDone && (
         <div className="px-4 pb-2">
           <button
             onClick={() => setSelectedTeam(selectedTeam === 'home' ? 'away' : 'home')}
-            className="w-full rounded-xl py-2.5 text-xs font-bold text-white/50 border border-white/08 hover:border-white/15 hover:text-white/70 transition-colors"
-            style={{ border: '1px solid rgba(255,255,255,0.07)' }}
+            className="w-full rounded-xl py-2.5 text-xs font-bold transition-all"
+            style={{
+              background: 'rgba(255,215,0,0.07)',
+              border: '1px solid rgba(255,215,0,0.2)',
+              color: '#FFD700',
+            }}
           >
             Adivinar el otro equipo →
           </button>
         </div>
       )}
 
+      {/* Both teams done banner */}
+      {bothDone && (
+        <div className="px-4 pb-2">
+          <div
+            className="rounded-xl p-3 text-center text-sm font-bold"
+            style={{
+              background: 'rgba(255,215,0,0.07)',
+              border: '1px solid rgba(255,215,0,0.2)',
+              color: '#FFD700',
+            }}
+          >
+            ¡Partido completo! —{' '}
+            <Link
+              href="/games/guess-xi"
+              className="underline underline-offset-2"
+            >
+              jugar otro
+            </Link>
+          </div>
+        </div>
+      )}
+
       {/* Bottom input */}
-      <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', background: '#050709' }}>
+      <div
+        style={{
+          borderTop: '1px solid rgba(255,255,255,0.05)',
+          background: 'rgba(4,6,12,0.95)',
+        }}
+      >
         <GlobalInput
           lineup={currentLineup}
           team={activeTeam}

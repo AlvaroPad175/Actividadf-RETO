@@ -20,10 +20,8 @@ function buildRows(players: Player[], formation: string): Player[][] {
 
   const rows: Player[][] = []
 
-  // FWD row
   if (fwd.length > 0) rows.push(fwd)
 
-  // MID rows — split by middle formation numbers
   const midNums = nums.slice(1, -1)
   if (midNums.length > 0) {
     let idx = 0
@@ -36,100 +34,58 @@ function buildRows(players: Player[], formation: string): Player[][] {
     rows.push(mid)
   }
 
-  // DEF row
   if (def.length > 0) rows.push(def)
-
-  // GK row
   if (gk.length > 0) rows.push(gk)
 
   return rows
 }
 
-// SVG football pitch markings — very subtle, drawn over the pitch background
-function PitchMarkings() {
+function PitchMarkings({ teamColor }: { teamColor: string }) {
+  const line = 'rgba(255,255,255,0.065)'
+  const faint = 'rgba(255,255,255,0.04)'
   return (
     <svg
       viewBox="0 0 300 430"
       className="absolute inset-0 w-full h-full pointer-events-none"
       preserveAspectRatio="none"
     >
+      <defs>
+        <linearGradient id="pitchGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stopColor={teamColor} stopOpacity="0.04" />
+          <stop offset="50%"  stopColor="transparent" stopOpacity="0" />
+          <stop offset="100%" stopColor={teamColor} stopOpacity="0.02" />
+        </linearGradient>
+      </defs>
+
+      {/* Subtle color wash from team color */}
+      <rect x="0" y="0" width="300" height="430" fill="url(#pitchGrad)" />
+
       {/* Outer border */}
-      <rect
-        x="1" y="1" width="298" height="428"
-        fill="none"
-        stroke="rgba(255,255,255,0.07)"
-        strokeWidth="1.5"
-        rx="4"
-      />
+      <rect x="2" y="2" width="296" height="426" fill="none" stroke={line} strokeWidth="1.5" rx="6" />
+
       {/* Center line */}
-      <line
-        x1="10" y1="215" x2="290" y2="215"
-        stroke="rgba(255,255,255,0.06)"
-        strokeWidth="1.2"
-      />
+      <line x1="12" y1="215" x2="288" y2="215" stroke={line} strokeWidth="1.2" />
+
       {/* Center circle */}
-      <circle
-        cx="150" cy="215" r="44"
-        fill="none"
-        stroke="rgba(255,255,255,0.06)"
-        strokeWidth="1.2"
-      />
-      {/* Center spot */}
-      <circle cx="150" cy="215" r="2.5" fill="rgba(255,255,255,0.08)" />
+      <circle cx="150" cy="215" r="46" fill="none" stroke={line} strokeWidth="1.2" />
+      <circle cx="150" cy="215" r="2.5" fill={line} />
 
-      {/* Penalty area top */}
-      <rect
-        x="78" y="1" width="144" height="60"
-        fill="none"
-        stroke="rgba(255,255,255,0.06)"
-        strokeWidth="1.2"
-      />
-      {/* Goal area top */}
-      <rect
-        x="108" y="1" width="84" height="26"
-        fill="none"
-        stroke="rgba(255,255,255,0.05)"
-        strokeWidth="1"
-      />
-      {/* Penalty arc top */}
-      <path
-        d="M 95 61 A 44 44 0 0 1 205 61"
-        fill="none"
-        stroke="rgba(255,255,255,0.06)"
-        strokeWidth="1.2"
-      />
-      {/* Penalty spot top */}
-      <circle cx="150" cy="44" r="2" fill="rgba(255,255,255,0.07)" />
+      {/* Penalty areas */}
+      <rect x="80" y="2" width="140" height="64" fill="none" stroke={line} strokeWidth="1.2" />
+      <rect x="110" y="2" width="80" height="28" fill="none" stroke={faint} strokeWidth="1" />
+      <path d="M 98 66 A 44 44 0 0 1 202 66" fill="none" stroke={line} strokeWidth="1.2" />
+      <circle cx="150" cy="46" r="2" fill={faint} />
 
-      {/* Penalty area bottom */}
-      <rect
-        x="78" y="369" width="144" height="60"
-        fill="none"
-        stroke="rgba(255,255,255,0.06)"
-        strokeWidth="1.2"
-      />
-      {/* Goal area bottom */}
-      <rect
-        x="108" y="403" width="84" height="26"
-        fill="none"
-        stroke="rgba(255,255,255,0.05)"
-        strokeWidth="1"
-      />
-      {/* Penalty arc bottom */}
-      <path
-        d="M 95 369 A 44 44 0 0 0 205 369"
-        fill="none"
-        stroke="rgba(255,255,255,0.06)"
-        strokeWidth="1.2"
-      />
-      {/* Penalty spot bottom */}
-      <circle cx="150" cy="386" r="2" fill="rgba(255,255,255,0.07)" />
+      <rect x="80" y="364" width="140" height="64" fill="none" stroke={line} strokeWidth="1.2" />
+      <rect x="110" y="400" width="80" height="28" fill="none" stroke={faint} strokeWidth="1" />
+      <path d="M 98 364 A 44 44 0 0 0 202 364" fill="none" stroke={line} strokeWidth="1.2" />
+      <circle cx="150" cy="384" r="2" fill={faint} />
 
       {/* Corner arcs */}
-      <path d="M 10 14 A 10 10 0 0 1 20 4" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
-      <path d="M 290 4 A 10 10 0 0 1 280 14" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
-      <path d="M 10 416 A 10 10 0 0 0 20 426" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
-      <path d="M 280 426 A 10 10 0 0 0 290 416" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+      <path d="M 12 18 A 12 12 0 0 1 24 6" fill="none" stroke={faint} strokeWidth="1" />
+      <path d="M 288 6 A 12 12 0 0 1 276 18" fill="none" stroke={faint} strokeWidth="1" />
+      <path d="M 12 412 A 12 12 0 0 0 24 424" fill="none" stroke={faint} strokeWidth="1" />
+      <path d="M 276 424 A 12 12 0 0 0 288 412" fill="none" stroke={faint} strokeWidth="1" />
     </svg>
   )
 }
@@ -145,24 +101,37 @@ export default function PitchView({
 
   return (
     <div
-      className="relative w-full rounded-xl overflow-hidden"
+      className="relative w-full rounded-2xl overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #0a1120 0%, #0c1425 50%, #0a1120 100%)',
-        border: '1px solid rgba(255,255,255,0.06)',
+        background: 'linear-gradient(180deg, #09111f 0%, #0b1526 40%, #0d1830 60%, #09111f 100%)',
+        border: '1px solid rgba(255,255,255,0.07)',
+        boxShadow: `inset 0 1px 0 rgba(255,255,255,0.05), 0 0 40px ${teamColor}10`,
         aspectRatio: '3/4.3',
         maxWidth: '420px',
         maxHeight: '72vh',
       }}
     >
-      <PitchMarkings />
+      <PitchMarkings teamColor={teamColor} />
 
-      {/* Player rows — distributed evenly top to bottom */}
-      <div className="absolute inset-0 flex flex-col justify-around py-5 px-3 z-10">
+      {/* Formation label */}
+      <div
+        className="absolute top-2 left-1/2 -translate-x-1/2 z-20 text-[9px] font-black tracking-widest uppercase px-2 py-0.5 rounded-full"
+        style={{
+          color: `${teamColor}90`,
+          background: `${teamColor}10`,
+          border: `1px solid ${teamColor}20`,
+        }}
+      >
+        {lineup.formation}
+      </div>
+
+      {/* Player rows */}
+      <div className="absolute inset-0 flex flex-col justify-around py-7 px-2 z-10">
         {rows.map((row, ri) => (
           <div
             key={ri}
-            className="flex items-center justify-center gap-1"
-            style={{ gap: row.length >= 4 ? '4px' : '8px' }}
+            className="flex items-center justify-center"
+            style={{ gap: row.length >= 5 ? '3px' : row.length >= 4 ? '5px' : '8px' }}
           >
             {row.map((player) => (
               <PlayerSlot

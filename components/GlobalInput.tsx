@@ -66,34 +66,41 @@ export default function GlobalInput({
     [handleSubmit]
   )
 
-  // Auto-focus on mount
   useEffect(() => {
     if (!isComplete && !isRevealed) {
       inputRef.current?.focus()
     }
   }, [isComplete, isRevealed])
 
+  /* ── Reveal confirm ───────────────────────────────── */
   if (showRevealConfirm) {
     return (
-      <div className="w-full max-w-md mx-auto px-4 py-3">
+      <div className="w-full max-w-md mx-auto px-4 py-4">
         <div
           className="rounded-xl p-4 text-center"
-          style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)' }}
+          style={{
+            background: 'rgba(239,68,68,0.07)',
+            border: '1px solid rgba(239,68,68,0.22)',
+          }}
         >
-          <p className="text-white/80 text-sm mb-3">
-            ¿Revelar los {remaining.length} jugadores restantes?
+          <p className="text-sm mb-3" style={{ color: 'rgba(255,255,255,0.7)' }}>
+            ¿Revelar los <strong className="text-white">{remaining.length}</strong> jugadores restantes?
           </p>
           <div className="flex gap-2">
             <button
               onClick={onRevealConfirm}
-              className="flex-1 py-2 rounded-lg text-sm font-bold text-white transition-colors"
-              style={{ background: 'rgba(239,68,68,0.7)' }}
+              className="flex-1 py-2 rounded-lg text-sm font-bold text-white"
+              style={{ background: 'rgba(239,68,68,0.6)' }}
             >
               Sí, revelar
             </button>
             <button
               onClick={onCancelReveal}
-              className="flex-1 py-2 rounded-lg text-sm font-bold text-white/60 border border-white/10 transition-colors hover:border-white/20"
+              className="flex-1 py-2 rounded-lg text-sm font-bold"
+              style={{
+                border: '1px solid rgba(255,255,255,0.1)',
+                color: 'rgba(255,255,255,0.5)',
+              }}
             >
               Cancelar
             </button>
@@ -103,30 +110,38 @@ export default function GlobalInput({
     )
   }
 
+  /* ── Complete (all guessed) ───────────────────────── */
   if (isComplete && !isRevealed) {
     return (
-      <div className="w-full max-w-md mx-auto px-4 py-3">
+      <div className="w-full max-w-md mx-auto px-4 py-4">
         <div
           className="rounded-xl p-4 text-center"
           style={{
-            background: `${team.color}12`,
-            border: `1px solid ${team.color}40`,
-            boxShadow: `0 0 24px ${team.color}20`,
+            background: `${team.color}10`,
+            border: `1px solid ${team.color}35`,
+            boxShadow: `0 0 24px ${team.color}18`,
           }}
         >
           <p className="font-black text-white text-base tracking-wide">¡XI COMPLETO!</p>
-          <p className="text-white/50 text-xs mt-1">{team.name}</p>
+          <p className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            {team.name}
+          </p>
         </div>
       </div>
     )
   }
 
+  /* ── Revealed (gave up) ───────────────────────────── */
   if (isRevealed) {
     return (
-      <div className="w-full max-w-md mx-auto px-4 py-3">
+      <div className="w-full max-w-md mx-auto px-4 py-4">
         <button
           onClick={onReset}
-          className="w-full py-3 rounded-xl text-sm font-bold border border-white/10 text-white/50 hover:border-white/20 hover:text-white/70 transition-colors"
+          className="w-full py-3 rounded-xl text-sm font-bold transition-all"
+          style={{
+            border: '1px solid rgba(255,255,255,0.1)',
+            color: 'rgba(255,255,255,0.45)',
+          }}
         >
           Reintentar este equipo
         </button>
@@ -134,6 +149,7 @@ export default function GlobalInput({
     )
   }
 
+  /* ── Main input ───────────────────────────────────── */
   return (
     <div className="w-full max-w-md mx-auto px-4 py-3">
       <div
@@ -142,24 +158,24 @@ export default function GlobalInput({
         }`}
         style={{
           background: wrongFlash
-            ? 'rgba(239,68,68,0.12)'
+            ? 'rgba(239,68,68,0.1)'
             : correctFlash
-            ? `${team.color}15`
-            : 'rgba(255,255,255,0.05)',
+            ? `${team.color}12`
+            : 'rgba(255,255,255,0.04)',
           border: wrongFlash
-            ? '1.5px solid rgba(239,68,68,0.5)'
+            ? '1.5px solid rgba(239,68,68,0.45)'
             : correctFlash
-            ? `1.5px solid ${team.color}80`
+            ? `1.5px solid ${team.color}70`
             : '1.5px solid rgba(255,255,255,0.08)',
-          boxShadow: correctFlash ? `0 0 20px ${team.color}30` : 'none',
+          boxShadow: correctFlash ? `0 0 20px ${team.color}25` : 'none',
         }}
       >
         {/* Team badge */}
         <div
-          className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-[10px] font-black"
+          className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-[9px] font-black"
           style={{
-            background: `${team.color}20`,
-            border: `1px solid ${team.color}40`,
+            background: `${team.color}18`,
+            border: `1px solid ${team.color}35`,
             color: team.color,
           }}
         >
@@ -174,7 +190,8 @@ export default function GlobalInput({
           onKeyDown={handleKey}
           placeholder="Escribe el nombre del jugador..."
           disabled={isComplete || isRevealed}
-          className="flex-1 bg-transparent text-white text-sm placeholder-white/25 outline-none min-w-0"
+          className="flex-1 bg-transparent text-white text-sm outline-none min-w-0"
+          style={{ caretColor: team.color }}
           autoComplete="off"
           autoCorrect="off"
           spellCheck={false}
@@ -183,9 +200,9 @@ export default function GlobalInput({
         <button
           onClick={handleSubmit}
           disabled={!value.trim()}
-          className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-black text-sm transition-all disabled:opacity-30"
+          className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-black text-sm transition-all disabled:opacity-25"
           style={{
-            background: value.trim() ? team.color : 'rgba(255,255,255,0.08)',
+            background: value.trim() ? team.color : 'rgba(255,255,255,0.07)',
             color: value.trim() ? '#000' : 'rgba(255,255,255,0.3)',
           }}
         >
@@ -194,10 +211,11 @@ export default function GlobalInput({
       </div>
 
       {/* Reveal link */}
-      <div className="text-center mt-2">
+      <div className="text-center mt-2.5">
         <button
           onClick={onReveal}
-          className="text-xs text-white/20 hover:text-white/40 transition-colors"
+          className="text-[11px] transition-colors"
+          style={{ color: 'rgba(255,255,255,0.18)' }}
         >
           Revelar respuestas
         </button>
